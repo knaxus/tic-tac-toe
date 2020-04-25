@@ -2,10 +2,20 @@ html {
   margin: 0;
   padding: 0;
   background-color: azure;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
 }
 
 header h1 {
   text-align: center;
+  border: 1px solid black;
+  box-shadow: 10px 7px 9px navy;
+  width: 22%;
+  font-weight: bold;
 }
 
 #tiles {
@@ -19,7 +29,7 @@ header h1 {
 #tiles canvas {
   height: 150px;
   width: 150px;
-  background-color: cornsilk;
+  background-color: #FEEEE6;
   border: black 1px solid;
 }
 
@@ -28,10 +38,60 @@ header h1 {
   border-color: cornsilk;
 }
 
-button {
+/* button {
   text-align: center;
-  width: 300px;
-  height: 50px;
+  width: 350px;
+  height: 52px;
   margin-top: 50px;
-  border-radius: 15px;
+  border: 1px solid black;
+  box-shadow: 10px 7px 9px navy;
+  font-weight: bold;
+  background-color: azure;
+  font-size: 25px;
+} */
+
+.btn {
+  background-color: white;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 25px;
+  width: 200px;
+  height: 50px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 50px;
+  border: 1px solid black;
+  box-shadow: 10px 7px 9px navy;
+  font-weight: bold;
+  margin-top: 15px;
+
+}
+
+.btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn span:after {
+  opacity: 0;
+  top: 0;
+  right: -20px; 
+  transition: 0.5s;
+}
+
+.btn:hover span {
+  padding-right: 25px;
+}
+
+.btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+#game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

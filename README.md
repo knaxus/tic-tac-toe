@@ -8,5 +8,6 @@ HTML5 game using Canvas &amp; **[MiniMax Algorithm](https://www.baeldung.com/jav
 
 Contributors:
 
-- [Ashok Dey](https://twitter.com/ashokdey_) [Initial Game]
-- [Priyanka N](https://twitter.com/thejsgrl) [UI improvements & Styles]
+- [Ashok Dey](https://twitter.com/ashokdey_)
+- [Priyanka N](https://twitter.com/thejsgrl)
+- [Ashu Deshwal](https://twitter.com/_thestl_)

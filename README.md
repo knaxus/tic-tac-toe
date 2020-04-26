@@ -1,4 +1,6 @@
-# Tic Tac Toe
+# Tic Tac Toe 
+
+Play it here: [AI Tic](http://ai-tic.surge.sh/)
 
 HTML5 game using Canvas &amp; **[MiniMax Algorithm](https://www.baeldung.com/java-minimax-algorithm)**
 

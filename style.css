@@ -2,10 +2,41 @@ html {
   margin: 0;
   padding: 0;
   background-color: azure;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 header h1 {
   text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: 1px solid black;
+  box-shadow: 10px 7px 9px navy;
+  width: 38%;
+  font-size: 35px;
+  padding: 10px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+header h2 {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: 1px solid black;
+  width: 26%;
+  font-size: 35px;
+  padding: 10px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  background: black;
+  color: white;
 }
 
 #tiles {
@@ -19,19 +50,319 @@ header h1 {
 #tiles canvas {
   height: 150px;
   width: 150px;
-  background-color: cornsilk;
+  background-color: #FEEEE6;
   border: black 1px solid;
 }
 
 #tiles canvas:hover {
   background-color: skyblue;
   border-color: cornsilk;
+  transform: scale(1.03);
 }
 
-button {
+.btn {
+  background-color: white;
+  border: none;
+  color: white;
+  background-color: black;
   text-align: center;
-  width: 300px;
+  font-size: 25px;
+  width: 200px;
   height: 50px;
-  margin-top: 50px;
-  border-radius: 15px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 50px;
+  border: 1px solid black;
+  box-shadow: 10px 7px 9px navy;
+  margin-top: 15px;
+
 }
+
+.btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn span:after {
+  opacity: 0;
+  top: 0;
+  right: -20px; 
+  transition: 0.5s;
+}
+
+.btn:hover span {
+  padding-right: 25px;
+}
+
+.btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+#game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media (min-width: 300px) and (max-width: 800px) {
+  header {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 12%;
+    margin-bottom: 10%;
+  }
+  header h1 {
+    width: 100%;
+    font-size: 25px;
+
+  }
+  header h2 {
+    width: 100%;
+    font-size: 25px;
+  }
+  #tiles {
+    box-sizing: border-box;
+    min-width: 80%;
+    max-width: 80%;
+    height: auto;
+    padding: 5px;
+  }
+  #tiles canvas {
+    width: 70px;
+    height: 85px;
+    padding: 2px;
+  }
+  .btn {
+    margin-left: 0;
+    font-size: 25px;
+    width: 60%;
+    margin-top: 12px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 12%;
+    margin-bottom: 10%;
+  }
+  header h1 {
+    width: 100%;
+    font-size: 20px;
+
+  }
+  header h2 {
+    width: 100%;
+    font-size: 20px;
+  }
+  #tiles {
+    box-sizing: border-box;
+    min-width: 85%;
+    max-width: 80%;
+    height: auto;
+
+  }
+  #tiles canvas {
+    width: 80px;
+    height: 90px;
+    padding: 2px;
+  }
+  .btn {
+    margin-left: 0;
+    font-size: 18px;
+    width: 60%;
+    margin-top: 12px;
+    height: 50px;
+  }
+}
+@media (max-width: 354px) {
+  header {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 12%;
+    margin-bottom: 10%;
+  }
+  header h1 {
+    width: 100%;
+    font-size: 20px;
+
+  }
+  header h2 {
+    width: 100%;
+    font-size: 20px;
+  }
+  #tiles {
+    box-sizing: border-box;
+    min-width: 85%;
+    max-width: 80%;
+    height: auto;
+
+  }
+  #tiles canvas {
+    width: 74px;
+    height: 80px;
+    padding: 2px;
+  }
+  .btn {
+    margin-left: 0;
+    font-size: 18px;
+    width: 60%;
+    margin-top: 12px;
+    height: 50px;
+  }
+}
+
+
+@media (min-width: 401px) and (max-width: 800px) {
+  header {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 12%;
+    margin-bottom: 10%;
+  }
+  header h1 {
+    width: 100%;
+    font-size: 25px;
+
+  }
+  header h2 {
+    width: 100%;
+    font-size: 25px;
+  }
+  #tiles {
+    box-sizing: border-box;
+    min-width: 70%;
+    max-width: 70%;
+    height: auto;
+    padding: 5px;
+  }
+  #tiles canvas {
+    width: 85px;
+    height: 100px;
+  }
+  .btn {
+    margin-left: 0;
+    font-size: 25px;
+    width: 60%;
+    margin-top: 12px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 821px) {
+  header {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 12%;
+    margin-bottom: 10%;
+  }
+  header h1 {
+    width: 100%;
+    font-size: 25px;
+
+  }
+  header h2 {
+    width: 100%;
+    font-size: 25px;
+  }
+  #tiles {
+    box-sizing: border-box;
+    min-width: 70%;
+    max-width: 70%;
+    height: auto;
+    padding: 5px;
+  }
+  #tiles canvas {
+    width: 70px;
+    height: 75px;
+  }
+  .btn {
+    margin-left: 0;
+    font-size: 25px;
+    width: 60%;
+    margin-top: 12px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 770px) {
+  header {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 12%;
+    margin-bottom: 10%;
+  }
+  header h1 {
+    width: 100%;
+    font-size: 25px;
+
+  }
+  header h2 {
+    width: 100%;
+    font-size: 25px;
+  }
+  #tiles {
+    box-sizing: border-box;
+    min-width: 70%;
+    max-width: 70%;
+    height: auto;
+    padding: 5px;
+  }
+  #tiles canvas {
+    width: 85px;
+    height: 90px;
+  }
+  .btn {
+    margin-left: 0;
+    font-size: 25px;
+    width: 60%;
+    margin-top: 12px;
+    height: 50px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    header {
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 8%;
+      margin-bottom: 0;
+    }
+    header h1 {
+      width: 100%;
+      font-size: 25px;
+
+    }
+    header h2 {
+      width: 100%;
+      font-size: 25px;
+    }
+  
+  #tiles {
+    height: 480px;
+    width: 480px;
+    border: black 5px solid;
+    text-align: center;
+    padding: 5px;
+  }
+
+  #tiles canvas {
+    height: 150px;
+    width: 150px;
+    background-color: #FEEEE6;
+    border: black 1px solid;
+  }
+  .btn {
+    margin-left: 0;
+    font-size: 25px;
+    width: 60%;
+    margin-top: 12px;
+    height: 50px;
+  }
+    
+  }
+

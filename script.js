@@ -95,8 +95,8 @@ window.onload = () => {
   function drawO(tile, ctx, next) {
     tile.style.backgroundColor = 'orange';
     ctx.beginPath();
-    ctx.arc(100, 100, 50, 0, 2 * Math.PI);
-    ctx.lineWidth = 20;
+    ctx.arc(120, 80, 40, 0, 2 * Math.PI);
+    ctx.lineWidth = 25;
     ctx.strokeStyle = 'white';
     ctx.stroke();
     ctx.closePath();

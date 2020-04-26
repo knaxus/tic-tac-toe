@@ -23,6 +23,7 @@ header h1 {
   padding: 10px;
   font-weight: bold;
   margin-bottom: 30px;
+  margin-top: 1.5em;
 }
 
 header h2 {
@@ -104,6 +105,16 @@ header h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.notes {
+  font-size: 1.5em;
+  color: #101010;
+}
+
+.notes a {
+  text-decoration: underline;
+  color: #101010;
 }
 
 

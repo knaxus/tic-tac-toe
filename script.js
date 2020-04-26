@@ -15,8 +15,8 @@ window.onload = () => {
   ];
 
 
-  const filled = []; // to track the whether boxes are filled or empty
-  const symbol = []; // to track which box has which symbol(`X` or `O`)
+  let filled = []; // to track the whether boxes are filled or empty
+  let symbol = []; // to track which box has which symbol(`X` or `O`)
 
   for (let i = 0; i < 9; i += 1) {
     filled[i] = false;
@@ -26,25 +26,48 @@ window.onload = () => {
   const newGame = document.getElementById('new-game');
   newGame.addEventListener('click', start);
 
-  function start() {
-    console.log('Start new Game');
-    document.location.reload();
-  }
-
+  const tiles = document.getElementById('tiles');
   // add event listener on the tiles
-  document.getElementById('tiles').addEventListener('click', (e) => {
+  tiles.addEventListener('click', (e) => {
     tileClick(e.target.id);
   });
+
+  function start() {
+    console.log('Start new Game');
+    turn = 1;
+    gameOver = false;
+    result = {};
+    filled = [];
+    symbol = [];
+    for (let i = 0; i < 9; i += 1) {
+      filled[i] = false;
+      symbol[i] = '';
+    }
+
+    document.getElementById('result').innerHTML = `RESULT`;
+    [...tiles.children].forEach((tile) => {
+      if (tile.tagName === 'CANVAS') {
+        tile.style.backgroundColor = '#FEEEE6';
+        const ctx = tile.getContext('2d');
+        ctx.clearRect(0, 0, tile.width, tile.height);
+      }
+    });
+
+  }
 
   function tileClick(tileId) {
     // get the tile
     const tile = document.getElementById(tileId);
+    if (!tile) {
+      return;
+    }
     // extract the tile number
     const tileNumber = Number(String(tileId).split('-')[1]);
 
     ctx = tile.getContext("2d");
     if (filled[tileNumber]) {
       alert('Please click on other tile');
+      return;
     }
 
 
@@ -77,11 +100,16 @@ window.onload = () => {
     tile.style.backgroundColor = 'skyblue';
     ctx.beginPath();
 
-    ctx.moveTo(30, 30);
-    ctx.lineTo(250, 100);
+    const xHeight = 70;
+    const xWidth = 220;
+    const startX = (tile.width - xWidth) / 2;
+    const startY = (tile.height - xHeight) / 2;
 
-    ctx.moveTo(30, 100);
-    ctx.lineTo(250, 30);
+    ctx.moveTo(startX, startY);
+    ctx.lineTo(tile.width - startX, startY + xHeight);
+
+    ctx.moveTo(startX, startY + xHeight);
+    ctx.lineTo(tile.width - startX, startY);
 
     ctx.lineCap = 'round';
     ctx.lineWidth = 30;
@@ -95,7 +123,7 @@ window.onload = () => {
   function drawO(tile, ctx, next) {
     tile.style.backgroundColor = 'orange';
     ctx.beginPath();
-    ctx.arc(120, 80, 40, 0, 2 * Math.PI);
+    ctx.arc(tile.width/2, tile.height/2, 40, 0, 2 * Math.PI);
     ctx.lineWidth = 25;
     ctx.strokeStyle = 'white';
     ctx.stroke();
@@ -134,6 +162,10 @@ window.onload = () => {
     const nextMove = miniMax(symbol, ai); //object that stores id of next move and score of the box for next move
     const nextId = `canvas-${nextMove.id}`;
     const tile = document.getElementById(nextId);
+    
+    if (!tile) {
+      return;
+    }
     const ctx = tile.getContext("2d");
 
     if (gameOver) {
